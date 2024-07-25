@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERITA TERBARU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Open sans', sans-serif;
+            box-sizing: border-box;
+        }
+        .header {
+            width: 100%;
+            padding: 8px 30px;
+            /* background-color: red; */
+            position: relative;
+            overflow: hidden;
+        }
+        .header .content {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* overflow: hidden; */
+        }
+        .header .content h1 {
+            color: #00c3ed;
+            font-weight: 800;
+            font-size: 2.1em;
+            letter-spacing: 2px;
+        }
+        .header .content h1 span {
+            font-weight: 500;
+        }
+        .header .content div {
+            height: 5px;
+            background-color: #00c3ed;
+            width: 100%;
+        }
+
+        .news {
+            width: 100%;
+            padding: 20px 30px;
+            color: #00c3ed;
+            position: relative;
+        }
+
+        .news .content-1,
+        .news .content-2 {
+            width: 100%;
+            text-align: right;
+        }
+
+        .news .content-2 {
+            margin-top: 100px;
+        }
+
+         /* CSS UNTUK SWIPER */
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 20px;
+            /* background-color: red; */
+
+        }
+        .swiper-wrapper {
+            text-align: left;
+            display: flex;
+            gap: 20px;
+            width: 90%;
+        }
+
+        .swiper-slide {
+            width: 100%;
+            position: relative;
+            background-color: #eee;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            padding: 0 5px;
+            color: #fff;
+        }
+
+        .swiper-slide:hover img{
+            transform: scale(1.2);
+        }
+
+        .swiper-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, #131313, rgba(223, 223, 223, 0.045));
+        }
+
+        .swiper-slide h2 {
+            position: absolute;
+            left: 5%;
+            bottom: 15%;
+            z-index: 9999;
+            font-size: 14px;
+        }
+        .swiper-slide p {
+            width: 90%;
+            position: absolute;
+            left: 5%;
+            bottom: 9%;
+            z-index: 9999;
+            font-size: 9px;
+            text-align: justify;
+            line-height: 12px;
+        }
+
+        .swiper-slide img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: scale(1);
+            transition: all 0.4s;
+           
+        }
+        .swiper-pagination {
+            background-color: #fff;
+            padding: 10px;
+        }
+        
+
+        .container-news {
+            width: 100%;
+            position: relative;
+        }
+
+        .container-news .popup {
+            display: none;
+        }
+        .container-news .popup.active {
+            display: flex
+        }
+
+
+        /* CSS UNTUK POPUP */
+        .popup {
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999999999999999999999999999999;
+            background: rgba(7, 7, 7, 0.6);
+            display: flex;
+        }
+
+        .popup .box {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: auto;
+            background-color: rgba(32, 32, 32, 0.582);
+            color: #fff;
+            padding: 20px 20px;
+            overflow: auto;
+        }
+
+        .popup .box .header {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+        }
+        .popup .box .logo img {
+            width: 50px;
+            border-radius: 50%;
+        }   
+
+        .popup .box div p {
+            font-size: 14px;
+        }
+
+        .popup .box .desc {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .popup .box .desc .img {
+        
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .popup .box .desc .paraph {
+            font-size: 6px;
+            text-align: justify;
+        }
+        .popup .box .content .desc .paraph p {
+            font-size: 11px;
+        }
+        .popup .box .desc .paraph p {
+            margin: 10px 0;
+        }
+
+        .popup .box .desc .img div {
+            position: relative;
+            width: 350px;
+            /* height: 350px; */
+            /* background-color: red; */
+            
+        }
+
+        .popup .box .desc .img img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .popup .box .logo-x {
+            position: absolute;
+            right: 15px;
+            top: 5px;
+        }
+            
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <main class="content">
+            <h1>BERITA <span>TERBARU</span></h1>
+            <div></div>
+        </main>
+    </header>
+
+    <section class="news">
+        <main class="content-1">
+            <h3>Teknologi</h3>
+            <div class="swiper-container swiper1">
+                <div class="swiper-wrapper content-news">
+                  <div class="swiper-slide" id="starlink">
+                    <img src="image/starlink-depan-3.jpg" alt="">
+                    <h2>Kehadiran Starlink Ancaman Buat Operator Selular Indonesia</h2>
+                    <p>waspada.id - 20/06/2024</p>
+                  </div>
+                  <div class="swiper-slide" id="hacker">
+                    <img src="image/hacker-3.jpg" alt="">
+                    <h2>Mengenal PDN yang Diserang Ransomware, Data Center Penting buat Sistem Elektronik Pemerintah</h2>
+                    <p>kompas.com - 25/06/2024</p>
+                  </div>
+                  <div class="swiper-slide" id="mouse">
+                    <img src="image/mouse-4.jpg" alt="">
+                    <h2>Razer Luncurkan DeathAdder V3 Hyperspeed, Mouse Gaming Ergonomis Berbodi Ringan</h2>
+                    <p>kompas.com - 22/06/2024</p>
+                  </div>
+                  <div class="swiper-slide" id="internet">
+                    <img src="image/telkom-3.jpg" alt="">
+                    <h2>Riset OpenSignal: Internet Telkomsel Tercepat, Jangkauan Terluas</h2>
+                    <p>kompas.com - 22/06/2024</p>
+                  </div>
+                  <div class="swiper-slide" id="handphone">
+                    <img src="image/laptop-4.jpg" alt="">
+                    <h2>Hadir di Indonesia, HUAWEI MatePad 11.5 S Berikan Pengalaman Lebih dari Laptop untuk Kebutuhan Kerja dan Kreatif</h2>
+                    <p>kompas.com - 25/06/2024</p>
+                  </div>
+                 
+                  
+                </div>
+                
+              </div>
+              
+        </main>
+        <main class="content-2">
+            <h3>Olahraga</h3>
+            <div class="swiper-container swiper2">
+                <div class="swiper-wrapper content-news-2">
+                  <div class="swiper-slide" id="modric">
+                    <img src="image/modric-1.jpg" alt="">
+                    <h2>Gagal Menang Vs Italia, Dalic Tetap Puji Modric dkk dan Minta Maaf</h2>
+                    <p>kompas.com - 25/06/2024</p>
+                  </div>
+                  <div class="swiper-slide" id="messi">
+                    <img src="image/messi-7.jpg" alt="">
+                    <h2>7 Pemain Bergaji Termewah di Copa America 2024: Kejutan! Lionel Messi Hanya di Posisi 6</h2>
+                    <p>bola.com - 21/06/2024</p>
+                  </div>
+                  <div class="swiper-slide" id="randi">
+                    <img src="image/randi-2.jpg" alt="" >
+                    <h2>Hasil Byon Combat 3: Tendangan Randy Pangalila Bungkam Kkajhe di Ronde Pertama!</h2>
+                    <p>okezone.com - 23/06/2024</p>
+                  </div>
+                  
+                 
+                </div>
+               
+              </div>
+              
+        </main>
+    </section>
+
+    
+
+    <section class="container-news">
+        <section class="popup" id="starlink">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <!-- <div class="logo"><img src="foto-1.jpg" alt="logo"></div> -->
+                        <div>
+                            <h3>Kehadiran Starlink Ancaman Buat Operator Selular Indonesia</h3>
+                            <p>waspada.id/medan/tekno - 20/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Hal itu disampaikan Chief Corporate Affairs XL Axiata-Marwan O. Baasir saat menyambangi Bumi Warta Waspada Kamis (20/06) didampingi Group Head XL Axiata West Region-Desy Sari Dewi, Head External Comm XL Axiata-Herry Wijayanto dan Aldy Desmet-Corporate Communication XL Axiata West Region.</p>
+                            <p>Marwan menyebutkan, sekarang ini kehadiran Starlink telah menjadi perbincangan di kalangan masyarakat Indonesia karena banyak diantara mereka penasaran terhadap teknologi ditawarkan Starlink, apalagi baru-baru ini telah mengeluarkan produk terbaru ukurannya lebih kecil dan simple. “Jadi kami melihat ancaman ini sudah tidak bisa dihindarkan dan nyata,” ujarnya dengan nada serius.</p>
+                            <p>Disebutkannya, teknologi Starlink yang menggunakan satelit tentu bisa mobile kemana pun, karenanya kami mengharapkan adanya peraturan yang sama diperlakukan terhadap para operator termasuk tata niaganya, sehingga struktur tata niaga ini bisa diatur, apakah dia berada di wilayah luar kota, karena kalau di Amerika serikat penggunaannya dilarang dalam kota-kota besar.</p>
+                            <p>Di Amerika Serikat, kata Marwan, Starlink hanya bisa dipakai di daerah-daerah pinggiran, sementara India dan China sudah menutup, namun yang sekarang ini yang sedang membuka diri adalah Srilangka dan Bangladesh.</p>
+                            <p>Sementara buat operator Indonesia ancaman ini sudah pasti sangat terasa, karena pemiliknya bukan orang sembarangan, apalagi Indonesia termasuk pasar yang sangat besar.</p>
+                            <p>Di hadapan para redaktur Waspada antaranya Sulaiman Hamzah (Redaktur Ekonomi), Dr H Erwan Effendi (Humas), T. Junaidi (Redaktur Nasional), Austin Antariksa Tumengkol-Pemred Waspada online (WOL) serta Surya Effendi-Redaktur Foto, Marwan menambahkan bahwa kebutuhan internet sekarang ini sudah menjadi yang ketiga setelah pangan dan sandang, bukan lagi papan. “Sekarang orang kalau enggak ada internet bisa ‘mati angin’, enggak bisa WA, main games, instagram sampai tiktok,” ujarnya.</p>
+                            <p>Selain itu katanya, pemerintah membuka market boleh-boleh saja, karena jasanya sama dengan internet, namun perlu dilihat investasi yang dilakukan operator dalam negeri perlu diprotek juga, jangan sampai pemerintah hanya tergiur membuka market hingga lupa dengan operator nasional, karena itu juga perlu dilindungi.
+    
+                                Marwan menyebutkan, sebagai operator nasional, tentunya kami juga perlu mengkritisi kebijakan-kebijakan pemerintah cuma levelnya belum sampai ke presiden.
+                                
+                                “Memang pernah kami melakukan kajian tentang reguler cost, yang akhirnya kami merasa sudah tidak tahan dan harus juga sampai ke presiden, sekarang kami lagi melihat dan memonitor perkembangan masuknya starlink ini kalau juga tidak ada perhatian dari pemerintah terpaksa harus ke presiden,” jelasnya.
+                                
+                                Hal lain katanya, penggunaan smartphone di Indonesia sekarang ini sudah mencapai di atas 90 persen. “Jadi kita berharap masyaratkat yang belum menggunakan smartphone bisa migrasi cara dengan ditutup kanal 2G ataupun 3G, tapi di sisi lain smartphonenya disubsidi, jadi mereka bisa membeli dengan harga murah. Itu sih harapan kita selaku operator,” ujarnya.
+                                
+                                XL sendiri katanya, sekarang ini memiliki pelanggan sudah 58 juta, ditopang 160 ribu bts, tetap berkomitmen konektivitas adalah kunci mewujudkan 17 target Pembangunan Berkelanjutan (Sustainable Development Goals/SDGs) pada tahun 2030. XL Axiata menjadi garda terdepan dan terpercaya dalam penyediaan infrastruktur teknologi informasi, membangun konektivitas untuk peningkatan kesejahteraan masyarakat dan kelestarian lingkungan.
+                                
+                                Komitmen XL Axiata bagi bangsa ini dinyatakan dalam tujuan yaitu, “Mengembangkan Indonesia melalui Demokratisasi Teknologi”. “Namun peran kami tidak hanya untuk mengembangkan ekonomi saja, melainkan juga kesejahteraan sosial dan kelestarian lingkungan melalui berbagai program terkait digital,” ucapnya. (m12)</p>
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/starlink-1.webp" alt="">
+                            </div>
+                            <div>
+                                <img src="image/starlink-2.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/starlink-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="internet">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <div>
+                            <h3>Riset OpenSignal: Internet Telkomsel Tercepat, Jangkauan Terluas.</h3>
+                            <p>kompas.com - 22/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Lembaga riset pengalaman dan jaringan seluler global, OpenSignal, menerbitkan laporan "Pengalaman Jaringan Seluler" untuk periode Juni 2024.</p>
+                            <p>Berdasarkan laporan itu, Telkomsel dinobatkan sebagai operator seluler dengan kecepatan unduh (download) maupun unggah (upload) tercepat dibanding operator seleler lainnya di Indonesia. Secara umum, OpenSignal memberikan penilaian terhadap 9 kategori. Mulai dari pengalaman video, kecepatan unduhan, jangkauan, konisistensi kualitas hingga kendalan yang ditawarkan masing-masing operator seluler Tanah Air.</p>
+                            <p>Dari 9 ketegori itu, Telkomsel unggul dalam tiga kategori, meliputi pengalaman kecepatan unduhan, kecepatan unggahan dan jangkauan.</p>
+                            <p>Untuk pengalaman unduhan, Telkomsel unggul dengan skor 25,5 Mbps. Skor ini mencakup pengalaman unduh pengguna sehari-hari di lintas jaringan termasuk 4G hingga 5G.</p>
+                            <p>Bila dibandingkan dengan operator lain seperti XL Axiata misalnya yang meraih skor 23,1 Mbps, skor Telkomsel unggul 10 persen. Namun bila dibandingkan dengan laporan Desember 2023, skor kecepatan unduhan Telkomsel terhitung sedikit menurun. Pada akhir tahun lalu, Telkomsel meraih skor 26,1 Mbps.</p>
+                            <p>Tidak hanya soal unduhan, Telkomsel juga unggul dalam hal kecepatan upload. Riset OpenSignal menunjukkan skor kecepatan unggah Telkomsel mencapai 10 Mbps. Secara umum, skor kecepatan unggah operator seluler pada Juni 2024 ini tergolong menurun. Namun Telkomsel berhasil mempertahankan posisinya sebagai juara dalam kecepatan unggah. Kendati demikian, kecepatan unggah Telkomsel turun, dibanding periode Desember 2023 sebesar 11,1 Mbps.</p>
+                            <p>Sementara kecepatan unggah XL mengalami penurunan tertinggi dari semula 9,5 Mbps pada Desember 2023, menjadi 8,2 Mbps pada Juni 2024. Beralih ke kategori pengalaman jangkauan, di mana OpenSignal mengukur jangkauan jaringan seluler di tempat tinggal, kerja, dan perjalanan orang-orang. Metrik ini mewakili pengalaman yang diterima pengguna saat mereka melakukan perjalanan di sekitar area yang mungkin mereka harapkan akan mendapatkan jangkauan. Telkomsel unggul pada kategori ini dengan skor 8,59 poin. Skornya melampaui operator lainnya yang hanya meraih skor di bawah 5 poin. Ini sekaligus menandai ketiga kalinya Telkomsel meraih penghargaan kategori ini tiga kali berturut-turut. Ini artinya, Telkomsel memiliki jangkauan paling luas dibanding operator lain. Sementara operator lainnya seperti Tri dan IM3 yang keduanya berada di bawah naungan Indosat, mendapat skor masing-masing 4,91 poin. Disusul XL dengan skor 4,61 poin dan Smartfren 2,22 poin.</p>
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/telkom-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/telkom-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="handphone">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <div>
+                            <h3>Hadir di Indonesia, HUAWEI MatePad 11.5 S Berikan Pengalaman Lebih dari Laptop untuk Kebutuhan Kerja dan Kreatif</h3>
+                            <p>kompas.com - 25/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Huawei Device Indonesia resmi meluncurkan HUAWEI MatePad 11.5 S ke pasar tablet Tanah Air. Tablet ini dibekali teknologi PaperMatte Displays 2.0 yang menawarkan pengalaman berkreasi di layar tablet bertekstur layaknya kertas yang telah ditingkatkan. Bersama dengan fitur anti-reflection, teknologi PaperMatte Displays 2.0 mampu mengeliminasi interferensi cahaya hingga 99 persen dan mengurangi pantulan cahaya berbayang di layar. Ditambah dengan dukungan fitur True-to-Life Colours, warna konten yang tersaji di layar tampak lebih menonjol dan hidup. Dengan fitur ini, pengguna dapat melihat konten layar dengan jelas, meskipun di lingkungan yang banyak pencahayaan atau di bawah sinar matahari langsung. Selain itu, tablet tersebut juga dilengkapi Eye Protection Certifications sehingga mata tetap nyaman dan tidak mudah lelah saat menatap layar tablet.</p>
+                            <p>Bagi pegiat desain, HUAWEI MatePad 11.5 S kini dilengkapi dengan aplikasi GoPaint yang dirancang eksklusif oleh Huawei. Aplikasi ini memuat serangkaian fitur inovatif yang menjadikan aktivitas menggambar dan melukis digital di layar tablet semakin terasa nyata serta menyenangkan. Pengguna profesional ataupun amatir dapat dengan mudah mengaplikasikan berbagai kreasi visual dengan dukungan HUAWEI M-Pencil 3rd Gen. Stylus pencil ini dilengkapi teknologi NearLink untuk hasilkan goresan yang lebih realistis dan minim latensi. Country Head Huawei Device Indonesia Huiler Fan mengatakan, peluncuran HUAWEI MatePad 11.5 S menandakan langkah inovatif Huawei dalam melanjutkan kesuksesan seri tablet sebelumnya yang telah menggunakan teknologi layar PaperMatte. “Tablet baru ini tidak hanya hadir membawa deretan fitur yang menjawab kebutuhan berkarya digital secara on-the-go, tetapi juga menawarkan ketajaman visual yang lebih baik sekaligus nyaman dan aman untuk mata pengguna,” ujar Fan dalam rilis pers yang diterima Kompas.com, Selasa (25/6/2024). Fan menjelaskan, huruf “S” dalam penamaan HUAWEI MatePad 11.5 S melambangkan makna Super and Strong. Huruf itu juga menandakan bahwa tablet tersebut selangkah lebih maju dalam segi ketangguhan kinerja dan fleksibilitas penggunaannya. Karena itulah, imbuhnya, HUAWEI MatePad 11.5 S dapat menjadi solusi tablet serbabisa yang mengoptimalkan produktivitas di lingkungan belajar ataupun bekerja. Tablet ini juga dapat meningkatkan kreativitas dengan fitur intuitif, termasuk memanjakan pengguna dengan pengalaman menikmati hiburan tanpa batas. Seluruh keunggulan teknologi HUAWEI MatePad 11.5 S itu berpadu sempurna dengan desain bodi yang sleek dan ringan, yakni dengan ketebalan 6,35 mm dan berat 515 gram. Untuk mempertegas kesan elegan, HUAWEI MatePad 11.5 S tersedia dalam pilihan warna eksklusif, yakni Violet dan Space Grey.</p>
+                            <p>HUAWEI MatePad 11.5 S sudah bisa dipesan melalui program pre-order yang berlangsung mulai 25 Juni-12 Juli 2024 dengan harga Rp 7.999.000. Pelanggan bisa mendapatkan banyak keuntungan untuk setiap pemesanan selama periode pre-order, termasuk bonus senilai total Rp 3,3 juta berupa HUAWEI MatePad 11.5 S Nearlink Keyboard, HUAWEI M-Pencil 3rd Generation, dan HUAWEI Mouse. Tak hanya itu, pelanggan juga akan mendapatkan Layanan Servis VIP garansi selama 1 tahun, dan bunga cicilan 0 persen selama 12 bulan. Pelanggan bisa memesan HUAWEI MatePad 11.5 S secara online via Huawei Official Store di sejumlah e-commerce terkemuka, seperti Shopee, Tokopedia, Blibli, dan TikTok Shop. Untuk setiap pembelian melalui e-commerce, pengguna dapat menikmati early bird voucher senilai Rp 100.000. Pelanggan juga dapat menikmati cicilan 0 persen melalui Spaylater hingga 6 bulan dan 0 persen biaya penanganan untuk pembayaran kredit hingga 24 bulan.</p>
+                            <p>Selain itu, untuk setiap pembelian di Tokopedia, pelanggan bisa mendapatkan 12 bulan gratis gadget protection dengan persediaan terbatas. Terdapat pula berbagai promo Back to School menarik pada HUAWEI Official Store. Salah satunya, diskon hingga 40 persen. Tak hanya melalui e-commerce, pelanggan juga dapat membeli tablet tersebut di eraspace.com dan DatascripMall.id. Untuk pembelian secara offline, HUAWEI MatePad 11.5 S tersedia di HUAWEI Authorized Experience Store, Erafone, Urban Republic, BliBli Store, dan partner penjualan lain.</p>
+                            
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/laptop-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/laptop-2.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/laptop-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="hacker">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <!-- <div class="logo"><img src="foto-1.jpg" alt="logo"></div> -->
+                        <div>
+                            <h3>Mengenal PDN yang Diserang Ransomware, Data Center Penting buat Sistem Elektronik Pemerintah</h3>
+                            <p>kompas.com - 25/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Server PDNS (Pusat Data Nasional Sementara) mengalami gangguan selama kurang lebih empat hari, sejak Kamis pekan lalu (20/6/2024) dan perlahan pulih mulai Senin kemarin (24/6/2024). Gangguan PNDS mengakibatkan sejumlah sistem elektronik instansi pemerintah mengalami gangguan. Sejak gangguan terjadi, tim Badan Siber dan Sandi Negara (BSSN), Kementerian Komunikasi dan Informatika (Kominfo), dan Cybercrime Polri, melakukan investigasi.</p>
+                            <p>Dari hasil investigasi itu, pemerintah mengonfirmasi, gangguan PDNS disebabkan karena terdapat serangan dari ransomware berjenis LockBit 3.0 varian baru yang bernama ransomware Brain Chiper. “Ransomware ini (ransomware Brain Chiper) adalah pengembangan terbaru dari ransomware lockbit 3.0. Sampel ransomware selanjutnya akan dilakukan analisis lebih lanjut dengan melibatkan entitas keamanan siber lainnya,” kata Kepala BSSN Hinsa Siburan dalam siaran pers Kominfo, Selasa (25/06/2024). Untuk diketahui, ransomware merupakan perangkat lunak berbahaya atau malicious software (malware) yang dapat menyerang perangkat pengguna dengan mengunci (mengenkripsi) data atau file di dalamnya.</p>
+                            <p>Ransomware digunakan peretas untuk meminta tebusan pada target atau korban agar bisa membuka data yang terenkripsi. Dari serangan ke PDNS ini, peretas diketahui meminta tebusan ke pemerintah dengan nominal sebesar 8 juta dollar AS (sekitar Rp 130 miliar). Sumber serangan yang berasal dari ransomware LockBit 3.0 varian baru itu diketahui setelah BSSN berhasil menemukan file ransomware dengan nama Brain Cipher Ransomware. Serangan ransomware ini cukup mengkhawatirkan mengingat fungsi PDNS yang penting. Sebagai informasi, PDNS merupakan bagian dari upaya mewujudkan PDN (Pusat Data Nasional). Lantas, apa itu PDN yang kini masih dalam tahap PDNS dan tengah diserang ransomware? Apa itu PDN? PDN atau Pusat Data Nasional merupakan implementasi dari apa yang diamanahkan pada Peraturan Presiden (Perpres) 95 Tahun 2018 tentang Sistem Pemerintah Berbasis Elektronik (SPBE). PDN adalah infrastruktur atau fasilitas yang digunakan untuk penempatan sistem elektronik dan komponen terkait lainnya untuk keperluan penempatan, penyimpanan dan pengolahan data, dan pemulihan data, yang dapat digunakan semua institusi pemerintah. PDN digunakan untuk menunjang kebutuhan membangun sistem elektronik, aplikasi, atau layanan institusi pemerintah yang terintegrasi. Sebelum adanya PDN, sistem elektronik instansi pemerintah pusat dan daerah masih berjalan sendiri-sendiri. Dengan PDN, pengelolaan data untuk sistem elektronik di tiap instansi pemerintah, baik instansi pemerintah pusat maupun instansi pemerintah daerah, akan terkonsolidasi dan berjalan secara integratif. Kebutuhan pemenuhan PDN ini dilaksanakan langsung oleh Kominfo. PDN hingga saat ini masih digarap. Infrastruktur PDN pertama yang dibangun pada 2022 berlokasi di kompleks perindustrian Deltamas Cikarang, Bekasi, Jawa Barat. Pembangunan PDN terus digenjot pemerintah mengingat infrastruktur ini memiliki potensi nilai mencapai sekitar 47 miliar dollar AS. PDN kedua dibangung di kawasan Nongsa Digital Park Batam. Kemudian, PDN ketiga dibangun di Balikpapan, Kalimantan Timur Sementara itu, PDN keempat dibangun di Labuan Bajo untuk menghubungkan Indonesia Barat dan Timur. Semua pembangunan infrastruktur PDN ini ditargetkan akan rampung pada tahun ini.</p>
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/hacker-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/hacker-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="mouse">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <!-- <div class="logo"><img src="foto-1.jpg" alt="logo"></div> -->
+                        <div>
+                            <h3>Razer Luncurkan DeathAdder V3 Hyperspeed, Mouse Gaming Ergonomis Berbodi Ringan</h3>
+                            <p>kompas.com - 22/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Pabrikan aksesori gaming Razer kembali menelurkan perangkat mouse baru, kali ini adalah DeathAdder V3 Hyperspeed yang merupakan versi lebih ringan dan lebih murah dari DeathAdder V3 Pro. Seperti model-model lainnya dari lini DeathAdder, Razer DeathAdder V3 Hyperspeed merupakan mouse gaming ergonomis untuk pengguna bertangan kanan, berbeda dari lini Viper yang berbentuk simetris (ambidextrous). Menurut Razer dalam situsnya, bentuk fisik mouse DeathAdder V3 Hyperspeed dirancang khusus lewat kolaborasi dengan sejumlah gamer e-sports profesional untuk memberikan grip yang terasa natural.</p>
+                            <p>Selain aspek shape ergonomis, bodi Razer DeathAdder V3 Hyperspeed juga terbilang sangat ringan di angka 55 gram saja. Sebagai perbandingan, Razer DeathAdder V3 Pro yang lebih dulu dirilis memiliki bobot 63 gram. Sebagai mouse gaming wireless, Razer DeathAdder V3 Hyperspeed terhubung ke perangkat dengan koneksi nirkabel yang diklaim memiliki latency minimal sekalius mendukung polling rate hingga 8.000 Hz dengan dongle HyperPolling yang dijual terpisah.</p>
+                            <p>Daya tahan baterainya disebut bisa mencapai 100 jam, tapi bisa jauh berkurang menjadi hanya 20 jam apabila mengaktikan polling rate 8.000 Hz, sebagaimana dihimpun KompasTekno dari PCGamesN, Sabtu (22/6/2024). Spesifikasi hardware Razer DeathAdder V3 Hyperspeed berada sedikit di bawah versi Pro, tapi masih terbilang mumpuni dengan sensor optis Focus X 26K yang memiliki sensitivitas maksimal 26.000 DPI (500 IPS, 40G).</p>
+                            <p>Untuk kedua tombol utama digunakan Razer Optical Mouse Switch Gen-3 yang diklaim memiliki daya tahan hingga 90 juta klik, dan jeda actuation 0,2 ms tanpa delay dari debounce. Baca juga: Razer Rilis Blade 18, Laptop Gaming Pertama dengan Layar 4K 200 Hz Bagian kaki-kali menggunakan bahan PTFE yang terbagi menjadi dua area lebar di sisi depan dan belakang serta di sekeliling sensor. Satu hal yang perlu dicatat, selain lebih ringan, dimensi fisik Razer DeathAdder V3 Hyperspeed juga sedikit lebih kecil dari versi pro, yakni 122,2 x 64,8 x 41,3 mm. Dibandingkan versi Pro yang dijual seharga 160 dollar AS (Rp 2,7 juta) di situs Razer, banderol Razer DeathAdder V3 Hyperspeed jauh lebih murah, yakni 100 dollar AS atau sekitar Rp 1,7 juta.</p>
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/mouse-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/mouse-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="modric">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <!-- <div class="logo"><img src="foto-1.jpg" alt="logo"></div> -->
+                        <div>
+                            <h3>Gagal Menang Vs Italia, Dalic Tetap Puji Modric dkk dan Minta Maaf</h3>
+                            <p>kompas.com - 25/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Pelatih timnas Kroasia, Zlatko Dalic, tetap memuji perjuangan anak asuhnya meski gagal meraih kemenangan saat melawan Italia pada laga Grup B Euro 2024.  Kroasia belum bisa lolos langsung ke 16 besar Piala Eropa 2024 karena tertahan imbang 1-1 oleh Italia. Laga Kroasia vs Italia pada duel terakhir penyisihan Grup B Euro 2024 berlangsung di Stadion Leipzig, Jerman, Senin (24/6/2024) atau Selasa dini hari WIB. Kroasia sebetulnya mempunyai kesempatan yang sangat besar untuk mengalahkan Italia. Kroasia sempat mendapat hadiah penalti seusai pemain Italia, Davide Frattesi, melakukan handsball, tetapi Luka Modric gagal mengeksekusinya dengan baik.</p>
+                            <p>Modric lalu mampu membayar kesalahannya melalui gol tendangan kaki kiri guna membawa Kroasia unggul 1-0 atas Italia pada menit ke-55. Namun, Kroasia kebobolan melalui Mattia Zaccagni pada injury time, tepatnya menit ke-90+8. Karena itu, Kroasia mesti menerima kenyataan gagal menang dan merelakan tiket 16 besar Euro 2024 jatuh ke tangan Italia. "Gol menit terakhir (terjadi juga saat lawan Albania, 2-2), menit terakhir hari ini (lawan Italia)," ucap Dalic dikutip dari situs UEFA. "Saya hanya bisa memberi selamat kepada para pemain atas perjuangan, kemauan, pengorbanan yang mereka tunjukkan," tuturnya.</p>
+                            <p>Dalic menilai skuadnya sudah tampil sangat bagus, terutama pada babak pertama melawan Italia. "Kroasia tampil bagus, terutama pada babak pertama. Kami tidak kebobolan, itulah yang tidak berhasil kami lakukan saat melawan Spanyol dan Albania," tuturnya. "Saya hanya bisa mengucapkan selamat kepada para pemain atas pertarungan yang hebat," ucapnya. Pelatih berusia 57 tahun itu lalu mengucapkan maaf kepada suporter yang telah mendukung Kroasia. Kroasia masih belum sepenuhnya gugur di Euro, tetapi peluang sangat tipis via jalur peringkat tiga terbaik.</p>
+                            <p>"Kami kebobolan dua gol pada masa tambahan waktu, begitulah adanya. Sebuah teori tentang melangkah lebih jauh? Ya, kami tidak bisa memengaruhinya," ucap Dalic. "Terima kasih kepada orang-orang yang menyemangati kami. Saya minta maaf kepada mereka, sangat kecewa karena hasilnya," tuturnya.</p>
+                            
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/modric-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/modric-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="messi">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <!-- <div class="logo"><img src="foto-1.jpg" alt="logo"></div> -->
+                        <div>
+                            <h3>7 Pemain Bergaji Termewah di Copa America 2024: Kejutan! Lionel Messi Hanya di Posisi 6</h3>
+                            <p>kompas.com - 21/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>Perhatian publik sepak bola dunia terbelah ke dua event akbar, Euro 2024 dan Copa America 2024. Dua turnamen tersebut menyimpan pesona masing-masing. 
+
+                                Menyebut turnamen Copa America 2024, perhatian akan tersedot ke dua tim raksasa di Amerika Selatan. mereka adalah Brasil dan Argentina. </p>
+                            <p>Status Argentina sangat istimewa. Tim Tango berlabel juara bertahan Copa America sekaligus Piala Dunia. 
+
+                                Tak heran, skuad mereka dihuni bintang-bintang yak tak main-main. Kualitas kelas dunia, yang tentunya bergaji mahal. Begitu juga di skuad Brasil. 
+                                
+                                Meskipun pesepak bola  bermain sepak bola internasional bukan untuk meraup gaji, mereka menghasilkan banyak uang saat bermain untuk klub. Berikut ini tujuh pemain dengan bayaran tertinggi yang tampil di Copa America 2024. </p>
+                            <p style="font-weight: 800;">7. Lautaro Martinez: Rp3,83 Miliar Per Pekan</p>
+                            <p>Di lima liga top Eropa, hanya empat pemain yang mencetak gol lebih banyak dibandingkan Martinez musim lalu. Penyerang Inter Milan ini akan memimpin lini depan Argentina.
+
+                                Saat ini berpenghasilan £184.000 atau setara Rp3,83 miliar per minggu.</p>
+                            <p style="font-weight: 800;">6. Lionel Messi: Rp3,84 Miliar Per Pekan</p>
+                            <p>Percaya atau tidak, Messi hanya menjadi pemain peringkat ketujuh dengan bayaran tertinggi di Copa America tahun ini.
+
+                                Dia masih menjadi pemain dengan bayaran tertinggi di MLS bersama Inter Miami. Namun, dibandingkan dengan pemain yang merumput di Eropa, gajinya tergolong rendah.
+                                
+                                Tentu saja, jika Anda mempertimbangkan merek dan kesepakatan komersial yang diterima, Messi akan menghasilkan juah lebih besar daripada £186.000 (Rp3,84 miliar) per minggu.
+                                
+                                Namun, itulah penghasilan yang dia peroleh sebagai gaji pokoknya di Inter Miami.
+                                
+                                Perlu juga diperhatikan bahwa Messi dilaporkan menolak tawaran sebesar £434 juta per musim untuk bermain di Arab Saudi tahun lalu, dan memilih bergabung dengan Inter Miami.</p>
+                                <p style="font-weight: 800;">5. Raphinha: Rp4,31 Miliar Per Pekan</p>
+                                <p>Meski tak menjadi starter reguler di Barcelona musim lalu, Raphinha tetap menjadi salah satu pemain paling produktif di klub. Di La Liga, ia mencetak rata-rata satu gol atau assist setiap 91,5 menit dan itu cukup bagus.
+
+                                    Ada spekulasi dia mungkin akan pindah musim panas ini. Klub-klub dari Premier League dan Arab Saudi dikabarkan tertarik meminangnya.</p>
+                                    <p style="font-weight: 800;">4. Rodrygo: Rp4,31 Miliar Per Pekan</p>
+                                    <p>Baru saja menyabet trofi Liga Champions bersama Real Madrid, Rodrygo akan berusaha merengkuh trofi pertama bersama Brasil musim panas ini.
+
+                                        Saat ini berpenghasilan sekitar £207.000 (Rp4,31 miliar) per minggu, tidak mengherankan ia termasuk di antara pemain dengan bayaran tertinggi di Copa America 2024. </p>
+                                        <p style="font-weight: 800;">3. Eder Militao: Rp5,02 Miliar Per Pekan</p>
+                                        <p>Meski melewatkan sebagian besar musim lalu karena cedera ACL, Militao pulih tepat waktu untuk ambil bagian di Copa America tahun ini.
+
+                                            Setelah menjuarai Copa America 2019, pengalamannya terbukti sangat penting di tahap akhir kompetisi.</p>
+                                            <p style="font-weight: 800;">2. Marquinhos: Rp5,79 Miliar Per Pekan</p>
+                                            <p>Dengan gaji tahunan sekitar £14,5 juta, tidak mengherankan Marquinhos menghabiskan dekade terakhir bermain untuk PSG.
+
+                                                Selain menjadi salah satu pemain dengan bayaran tertinggi di skuad Brasil, Marquinhos juga merupakan salah satu pemain paling berpengalaman. Dengan 85 caps internasional, dia akan memiliki peran penting di musim panas ini.</p>
+                                                <p style="font-weight: 800;">1. Vinicius Junior: Rp7,19 Miliar Per Pekan</p>
+                                                <p>Siapa lagi? Vinicius sejauh ini merupakan pemain dengan gaji tertinggi di Copa America, membawa pulang £345.000 (Rp7,19 miliar) per pekan di Real Madrid.
+
+                                                    Dia adalah kandidat terkuat untuk memenangi Ballon d’Or 2024. Jika berhasil membawa Brasil meraih kemenangan musim panas ini, tentunya penghargaan itu bakal masuk genggamannya?</p>
+                            
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/messi-7.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/vini.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+        <section class="popup" id="randi">
+            <section class="box">
+                <main class="content">
+                    <header class="header">
+                        <!-- <div class="logo"><img src="foto-1.jpg" alt="logo"></div> -->
+                        <div>
+                            <h3>Hasil Byon Combat 3: Tendangan Randy Pangalila Bungkam Kkajhe di Ronde Pertama!</h3>
+                            <p>sport.okezone.com - 23/06/2024</p>
+                        </div>
+                    </header>
+                    <main class="desc">
+                        <div class="paraph">
+                            <p>RANDY Pangalila berhasil mengalahkan Jekson Karmela (Kkajhe) di ajang Byon Combat 3. Tak butuh waktu lama, Randy Pangalila menang atas lawannya itu di ronde pertama.
+
+                                Pertarungan keduanya berlangsung di Tennis Indoor Senayan, Jakarta, pada Sabtu, 22 Juni 2024, malam WIB. Randy Pangalila awalnya sempat kesusahan meladeni gaya agresif Kkahje di awal. Kkajhe yang memiliki basic beladiri Muay Thai langsung menyerang sejak awal ronde pertama. Kombinasi pukulan dan tendangan Kkahje benar-benar membuat Randy Pangalila tersudut.</p>
+                            <p>Dia bahkan sempat dua kali terjatuh setelah mendapat serangan dari Kkajhe. Meski demikian, Randy Pangalila masih terlihat cukup tenang dan kembali melanjutkan pertarungan.
+
+                                Tidak disangka, Randy Pangalila yang sudah terlihat kesusahan justru mendapat momentum untuk membalikkan keadaan. Satu serangan dari Randy Pangalila merubah keadaan.</p>
+                            <p>Spinning back heel kick yang dilepaskan Randy Pangalila mendarat tepat ke rusuk sebelah kanan Kkajhe. Tendangan itu rupanya memberikan dampak serius pada sang lawan.</p>
+                            <p>Kkajhe pun langsung terjatuh sambil memegangi bagian rusuk. Wasit yang melihat hal tersebut langsung menghentikan pertandingan di ronde pertama dan memutuskan Randy Pangalila sebagai pemenang.</p>
+                            
+                        </div>
+                        <div class="img">
+                            <div>
+                                <img src="image/randi-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="image/randi-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </main>
+                </main>
+                <div class="logo-x">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </section>
+        </section>
+    </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Menambahkan JavaScript untuk MODUL AOS (ANIMATE ON SCROLL) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+       
+            const swiper2 = new Swiper('.swiper2', {
+                // Opsi Swiper (misalnya autoplay, loop, dll.)
+            loop: true,
+            slidesPerView: 3,
+            pagination: {
+                el: '.swiper-pagination2',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next2',
+                prevEl: '.swiper-button-prev2',
+            },
+            autoplay:false
+            });
+            const swiper1 = new Swiper('.swiper1', {
+                // Opsi Swiper (misalnya autoplay, loop, dll.)
+            loop: true,
+            slidesPerView: 4,
+            pagination: {
+                el: '.swiper-pagination1',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next1',
+                prevEl: '.swiper-button-prev1',
+            },
+            autoplay: true
+            });
+            
+    </script>
+
+    <script src="popupNews.js"></script>
+</body>
+</html>

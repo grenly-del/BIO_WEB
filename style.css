@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+}
+
+img {
+    width: 200px;
+}
+
+.header {
+    padding: 10px 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+.header nav h1 {
+    color: #fff;
+}
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+
+.header a {
+    color: #fff;
+    font-weight: 500;
+}
+
+
+.hero {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(image/bg-3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero .content {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    padding: 0 50px;
+}
+
+.hero .content .btn {
+    margin-top: 50px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 0;
+    background-color: none;
+    outline: none;
+    border: none;
+    display: inline-block;
+}
+
+.hero .content .btn a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #050C9C;
+}
+
+.hero .content h1 {
+    color: #A7E6FF;
+    font-size: 55px;
+}
+
+.hero .content .media_sosial {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+}
+.hero .content p{
+    width: 90%;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.hero .content .media_sosial a{
+    font-size: 23px;
+    color: #A7E6FF;
+}
+
+
+
+.about {
+    padding: 20px 0;
+    position: relative;
+    color: #0e0e0e;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.about .content {
+    margin-top: 60px;
+    position: relative;
+    padding: 0 50px;
+    display: flex;
+    gap: 50px;
+}
+.about .content .left {
+    width: 50%;
+}
+.about .content .right {
+    width: 50%;
+}
+.about .content .left h1{
+    text-align: left;
+    font-size: 23px;
+    font-weight: 900;
+}
+.about .content .left h3 {
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.about .content .left p {
+    font-size: 15px;
+}
+.about h1{
+    text-align: center;
+    font-weight: 800;
+}
+
+
+.about .content .right h1 {
+    text-align: left;
+    font-size: 23px;
+    font-weight: 900;
+    margin-left: 55px;
+}
+
+.about .content .right {
+    position: relative;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    /* background-color: red; */
+    justify-content: space-between;
+}
+
+.about .content .right .box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.about .content .right .box h1 {
+    margin-left: 50px;
+}
+.about .content .right .box .content {
+    display: flex;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: -100px;
+    
+    /* background-color: red; */
+}
+
+
+.about .content .right .util {
+    display: flex;
+    width: 50px;
+    gap: 55px;
+    position: relative;
+    flex-direction: column;
+}
+
+
+.about .content .right .box-content {
+    display: flex;
+    margin-left: -21px;
+    flex-direction: column;
+    gap: 65px;
+}
+
+.about .content .right .util div:nth-child(1),
+.about .content .right .util div:nth-child(2),
+.about .content .right .util div:nth-child(3),
+.about .content .right .util div:nth-child(4) {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #0e0e0e;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about .content .right .box .util div:last-child {
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    border-radius: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0e0e0e;
+}
+
+.about .content .right .box .content .box-content h3{
+    font-size: 14px;
+}
+
+
+.gallery {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    padding: 20px 0;
+}
+
+.gallery h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.gallery .content {
+    padding: 0 50px;
+    margin-top: 60px;
+}
+
+.gallery .content .first-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.gallery .content .first-img div{
+    border-radius: 3px;
+}
+
+.gallery .content .first-img div {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    object-fit: contain;
+
+}
+
+.gallery .content .first-img div img{
+    object-fit: contain;
+    width: 240px;
+}
+
+.footer {
+    background-color: #012a52;
+}
+
+.footer .content {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eee;
+}
+.footer .content a{
+    color: #eee;
+}
+
+.footer .content .left {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    align-items: center;
+}
+
+.footer .content .left .left-content {
+    text-align: right;
+}
+.footer .content .left .middle-content {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: #eee;
+    left: 59%;
+    /* transform: translateX(-50%); */
+}
+
+.footer .content .left .right-content h3 {
+    font-weight: 300;
+}
+
+.footer .content .right {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.footer .content .right .left-content {
+    position: relative;
+    height: 100%;
+}
+
+.footer .content .right h2 {
+    font-size: 22px;
+}
+.footer .content .right .left-content ul {
+    margin-left: 20px;
+}
+.footer .content .right .left-content ul li a{
+    color: #eee;
+    font-size: 14px;
+}
+
+.footer .content .right .right-content {
+    display: flex;
+    /* background-color: green; */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85px;
+}
+.footer .content .right .right-content div {
+    display: flex;
+    gap: 20px;
+}
+.footer .content .right .right-content i{
+    color: #eee;
+}
+
+
+@media (max-width: 1060px) {
+    .about .content .right {
+        flex-direction: column;
+    }
+}

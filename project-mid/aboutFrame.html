@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Frame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Menambahkan CSS untuk MODUL AOS (ANIMATE ON SCROLL) -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open sans', sans-serif;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        a {
+            background: #00c3ed;
+            width: 150px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            padding: 8px 0;
+            text-align: center;
+            text-decoration: none;
+            
+        }
+        .about {
+            width: 100%;
+            background-color: #f7f7f7;
+            padding: 30px 30px 40px 30px;
+            
+        }
+        .about .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
+        .about .content .left {
+            width: 55%;
+            overflow-x: hidden;
+        }
+        .about .content .right {
+            width: 45%;
+            overflow-x: hidden;
+        }
+        .about .content .left h5 {
+            color: #00c3ed;
+        }
+        .about .content .left h1 {
+            font-size: 30px;
+        }
+        .about .content .left h1 span{
+            color: #00c3ed;
+        }
+        .about .content .left .paraph {
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .about .content .left .media {
+            display: grid;
+            width: 85%;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 20px;
+            justify-content: space-around;
+        }
+        /* .about .content .left .media div {
+            background-color: green;
+        } */
+        .about .content .left .media p {
+            font-size: 0.8em;
+        }
+
+        .about .content .left .btn {
+            display: flex;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .about .content .left .btn a {
+            cursor: pointer;
+            border: 2px solid #00c3ed;
+            transition: all 0.3s;
+        }
+        .about .content .left .btn a:nth-child(1):hover{
+            cursor: pointer;
+            background:none;
+            color: #00c3ed;
+        } 
+        
+        .about .content .left .btn a:nth-child(2) {
+            background: none;
+            color: #00c3ed;
+        }
+        .about .content .left .btn a:nth-child(2):hover{
+            background-color: #00c3ed;
+            color: #fff;
+        }
+        .about .desc {
+            
+            position: relative;
+            width: 100%;
+            /* background-color: red; */
+            display: flex;
+            overflow-y: hidden;
+            color: #2b2b2b;
+            justify-content: space-around;
+            
+        }
+        .about .content-2 .content,
+        .about .content-1 .content {
+            margin-top: 20px;
+        }
+        .about .content-2 .box,
+        .about .content-1 .box {
+            display: flex;
+            flex-direction: column;
+        }
+        .about .content-2 h5,
+        .about .content-1 h5 {
+            color: #00c3ed;
+        }
+        .about .content-2 .util,
+        .about .content-1 .util {
+            display: flex;
+            width: 50px;
+            gap: 80px;
+            position: relative;
+            flex-direction: column;
+        }
+
+
+        .about .content-2 .box-content,
+        .about .content-1 .box-content {
+            display: flex;
+            /* margin-left: -21px; */
+            flex-direction: column;
+            gap: 65px;
+        }
+
+        .about .content-2 .util div:nth-child(1),
+        .about .content-2 .util div:nth-child(2),
+        .about .content-2 .util div:nth-child(3),
+        .about .content-2 .util div:nth-child(4),
+        .about .content-1 .util div:nth-child(1),
+        .about .content-1 .util div:nth-child(2),
+        .about .content-1 .util div:nth-child(3),
+        .about .content-1 .util div:nth-child(4) {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #00c3ed;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about .content-2 .box .util div:last-child,
+        .about .content-1 .box .util div:last-child {
+            position: absolute;
+            height: 90%;
+            width: 4px;
+            border-radius: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00c3ed;
+        }
+
+        .about .content-2 .content .box-content h3,
+        .about .content-1 .content .box-content h3{
+            font-size: 14px;
+            color: #00c3ed;
+        }
+
+        .about .content-2 .content .box-content h4,
+        .about .content-1 .content .box-content h4 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+
+
+
+        .skills {
+            width: 100%;
+            background-color: #f0f0f0;
+            position: relative;
+            padding: 20px 30px;
+        }
+        .skills h5 {
+            color: #00c3ed;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .skills .content {
+            width: 100%;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            gap: 20px;
+        }
+        .wrapper-center {
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(153, 153, 153, 0.2);
+        }
+        .progress-bar {
+            /* background: #000; */
+            width: 200px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; 
+            position: relative;
+        }
+        .progress-bar:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            /* background: #444; */
+            z-index: 0;
+        }
+        /*===== The CSS =====*/
+        .progress{
+            width: 200px;
+            height: 280px;
+            z-index: 1;
+        }
+        .progress .track, .progress .fill{
+            fill: rgba(0, 0, 0, 0);
+            stroke-width: 5;
+            transform: rotate(90deg)translate(0px, -80px);
+        }
+        .progress .track{
+            stroke: #0a596a;
+        }
+        .progress .fill {
+            stroke: #008eff;
+            stroke-dasharray: 219.99078369140625;
+            stroke-dashoffset: -219.99078369140625;
+            transition: stroke-dashoffset 1s;
+        }
+        .progress .value {
+            fill: #008eff;
+            text-anchor: middle;
+        }
+        .progress .text {
+            font-size: 8px;
+            fill: #00c3ed;
+            text-anchor: middle;
+            font-weight: 600;
+        }
+       
+
+
+    </style>
+</head>
+<body>
+    <section class="about">
+        <main class="content">
+            <aside class="left">
+                <h5 data-aos="fade-down" data-aos-duration="600" data-aos-delay="50">- Tentang Saya</h5>
+                <h1 data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">SAYA SEORANG MAHASISWA DI <span>UNIVERSITAS KLABAT.</span></h1>
+                <p class="paraph" data-aos="fade-left" data-aos-duration="600" data-aos-delay="200">Saat ini saya sedang berpendidikan di Universitas Klabat, semester 2, tingkat 1. Saya juga pernah bekerja sebelumnya di salah satu perusahaan <span>Digital Printing</span></p>
+                <div class="media">
+                    <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                        <h6>Nama</h6>
+                        <p>Grantly Antonio Edward Sorongan</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                        <h6>Email</h6>
+                        <p>snakeeys070@gmail.com</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+                        <h6>Tempat, Tanggal Lahir</h6>
+                        <p>Sorong, 13 Agustus 2004</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
+                        <h6>Nomor HP.</h6>
+                        <p>+62 8952 7173 365</p>
+                    </div>
+                    
+                </div>
+                <div class="btn">
+                    <a href="../Latihan_WEB_DESIGN//LAT17.html" data-aos="fade-right" data-aos-duration="900" data-aos-delay="100">Latihan</a>
+                    <a href="../bio-web.html" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">Bio Saya</a>
+                </div>
+            </aside>
+            <aside class="right" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+                <img src="image/ICON-2.png" alt="MY-FOTO" width="100%">
+            </aside>
+        </main>
+        <section class="desc">
+            <main class="content-1" data-aos="fade-down-right" data-aos-duration="600" data-aos-delay="100">
+                <div class="box">
+                    <h5>- Pengalaman</h5>
+                    <div class="content">
+                        <div class="util">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="stik"></div>
+                        </div>
+                        <div class="box-content">
+                            <div>
+                                <h3>5 Bulan</h3>
+                                <h4>Magang SMK</h4>
+                            </div>
+                            <div>
+                                <h3>6 Bulan</h3>
+                                <h4>Kerja di perusahaan Digital Printing</h4>
+                            </div>
+                            <div>
+                                <h3>5 Bulan</h3>
+                                <h4>Freelance Design</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <main class="content-2" data-aos="fade-down-left" data-aos-duration="600" data-aos-delay="100">
+                <div class="box">
+                    <h5>- Pendidikan</h5>
+                    <div class="content">
+                        <div class="util">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="stik"></div>
+                        </div>
+                        <div class="box-content">
+                            <div>
+                                <h3>2010 - 2011</h3>
+                                <h4>TK GPDI TREMAN</h4>
+                            </div>
+                            <div>
+                                <h3>2012 - 2017</h3>
+                                <h4>SDN INPRES TREMAN</h4>
+                            </div>
+                            <div>
+                                <h3>2017 - 2019</h3>
+                                <h4>SMPN 2 KAUDITAN</h4>
+                            </div>
+                            <div>
+                                <h3>2019 - 2021</h3>
+                                <h4>SMKN 1 AIRMADIDI</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </section>
+    <section class="skills">
+        <h5 data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">- Pengetahuan</h5>
+        <main class="content">
+            <div class="wrapper-center" data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="90" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">HTML</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="85" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">CSS</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-left" data-aos-duration="600" data-aos-delay="100">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="76" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">JAVASCRIPT</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-right" data-aos-duration="600" data-aos-delay="200">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="70" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">REACT</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="80" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">NODEJS</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-left" data-aos-duration="600" data-aos-delay="200">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="86" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">EXPRESS JS</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-right" data-aos-duration="600" data-aos-delay="300">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="60" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">MONGODB</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="80" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">TAILWIND CSS</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="wrapper-center" data-aos="fade-left" data-aos-duration="600" data-aos-delay="300">
+                <div class="progress-bar">
+                  <svg class="progress" data-progress="45" x="0px" y="0px" viewBox="0 0 80 80">
+                    <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                    <text class="value" x="50%" y="55%">0%</text>
+                    <text class="text" x="50%" y="115%">VITE JS</text>
+                  </svg>
+                </div>
+              </div>
+        </main>
+    </section>
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Menambahkan JavaScript untuk MODUL AOS (ANIMATE ON SCROLL) -->
+    <script>
+        AOS.init({
+                once: true,
+                duration: 450,
+                mirror: false,
+                disable: false,
+        });
+
+              // MANIPULASI SCROLL BAR
+              let forEach = function (array, callback, scope) {
+            for (let i = 0; i < array.length; i++) {
+            callback.call(scope, i, array[i]);
+            }
+        };
+        window.onload = function(){
+            let max = -219.99078369140625;
+            forEach(document.querySelectorAll('.progress'), function (index, value) {
+            percent = value.getAttribute('data-progress');
+            value.querySelector('.fill').setAttribute('style', 'stroke-dashoffset: ' + ((100 - percent) / 100) * max);
+            value.querySelector('.value').innerHTML = percent + '%';
+            });
+        }
+
+
+    </script>
+</body>
+</html>

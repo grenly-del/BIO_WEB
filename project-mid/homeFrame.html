@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Frame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Menambahkan CSS untuk MODUL AOS (ANIMATE ON SCROLL) -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open sans', sans-serif;
+        }
+        a {
+            background: #00c3ed;
+            width: 150px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            text-decoration: none;
+        }
+        section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            padding: 40px 40px;
+            
+        }
+
+        section .left {
+            width: 80%;
+            
+        }
+
+        section .left h1 {
+            margin-top: 50px;
+            font-size: 2.8em;
+            font-weight: 800;
+            color: #00c3ed;
+            letter-spacing: 5px;
+        }
+        section .left p {
+            margin-top: 20px;
+        }
+        section .left .btn {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        section .left .btn a {
+            cursor: pointer;
+            border: 2px solid #00c3ed;
+            transition: all 0.1s;
+        }
+        section .left .btn a:nth-child(2){
+            background: none;
+            color: #00c3ed;
+
+        }
+        section .left .btn a:nth-child(1):hover{
+            cursor: pointer;
+            background:none;
+            color: #00c3ed;
+        } 
+        section .left .btn a:nth-child(2):hover{
+            background-color: #00c3ed;
+            color: #fff;
+        }
+        section .left .contact {
+            margin-top: 50px;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            gap: 10px;
+        }
+        section .left .contact div:nth-child(1) {
+            width: 4px;
+            height: 90px;
+            background-color: #00c3ed;
+        }
+        section .left .contact div:nth-child(2) {
+            margin-top: 5px;
+        }
+        section .left .contact div:nth-child(2) h4 {
+            margin-top: 10px;
+        }
+        section .left .contact div:nth-child(2) p {
+            margin-top: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <main class="content">
+            <aside class="left">
+                <h1 class="title" data-aos="fade-down-right" data-aos-duration="600" data-aos-delay="100" >Hi, Selamat Datang Di Website Portfolio Saya</h1>
+                <p class="paraph" data-aos="fade-right" data-aos-duration="600" data-aos-delay="300">Perkenalkan nama saya Grantly Sorongan, dan ini adalah website yang berisi informasi tentang saya.</p>
+                <div class="btn">
+                    <a href="../Latihan_WEB_DESIGN/LAT17.html" data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">Latihan</a>
+                    <a href="../bio-web.html" data-aos="fade-left" data-aos-duration="600" data-aos-delay="300">Bio Saya</a>
+                </div>
+                <div class="contact">
+                    <div data-aos="fade-right" data-aos-duration="600" data-aos-delay="100"></div>
+                    <div>
+                        <h4 data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">Email :</h4>
+                        <p data-aos="fade-left" data-aos-duration="600" data-aos-delay="500">snakeeys070@gmail.com</p>
+                    </div>
+                </div>
+            </aside>
+            <aside class="right" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                <img src="image/ICON.png" alt="MY Icon" width="100%">
+            </aside>
+        </main>
+    </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Menambahkan JavaScript untuk MODUL AOS (ANIMATE ON SCROLL) -->
+    <script>
+        AOS.init({
+                once: true,
+                duration: 450,
+                mirror: false,
+                disable: false,
+        });
+    </script>
+</body>
+</html>

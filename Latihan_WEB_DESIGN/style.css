@@ -1,0 +1,24 @@
+* {
+    
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+.navbar *{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.navbar > div:nth-child(1) {
+    font-style: italic;
+}
+.navbar > div:nth-child(2){
+    align-self: flex-end;
+}
+
+.homepage ul {
+    list-style: none;
+}

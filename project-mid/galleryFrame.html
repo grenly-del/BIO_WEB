@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open sans', sans-serif;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .gallery {
+            width: 100%;
+            position: relative;
+            padding: 0 30px 30px;
+        }
+
+        .gallery .content .row {
+            margin-top:40px;
+        }
+        .gallery .content .row h2 {
+            font-family: "Playwrite MX", cursive;
+            color: #00c3ed;
+            text-align: center;
+        }
+
+        .gallery .content .row .image {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr );
+            gap: 15px;
+            row-gap: 30px;
+        }
+
+        .gallery .content .row .image .card {
+            padding: 5px 7px;
+            position: relative;
+            /* background-color: #eee; */
+            box-shadow: 0 1px 10px rgba(59, 59, 59, 0.2);
+            overflow: hidden;
+        }
+        .gallery .content .row .image .card h5 {
+            font-size: 13px;
+        }
+        .gallery .content .row .image .card p{
+            font-size: 11px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    
+    <section class="gallery">
+        <main class="content">
+            <div class="row">
+                <h2 data-aos="fade-down" data-aos-duration="600" data-aos-delay="500">Ini adalah saya ...</h2>
+                <div class="image">
+                    <div class="card" data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+                        <img src="image/gren-3.jpg" alt="My Foto">
+                        <h5>Pantai</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+                        <img src="image/gren-2.jpg" alt="My Foto">
+                        <h5>Pantai</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+                        <img src="image/gren-6.jpg" alt="My Foto">
+                        <h5>Jalan</h5>
+                        <p>- 2022</p>
+                    </div>
+                    <div class="card" data-aos="fade-left" data-aos-duration="600" data-aos-delay="100">
+                        <img src="image/gren-4.jpg" alt="My Foto">
+                        <h5>Billiard</h5>
+                        <p>- 2024</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <h2 data-aos="fade-top" data-aos-duration="600" data-aos-delay="500">Yang aku suka ...</h2>
+                <div class="image">
+                    <div class="card" data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+                        <img src="image/messi-1.jpg" alt="My Foto">
+                        <h5>Messi</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                        <img src="image/messi-2.jpg" alt="My Foto">
+                        <h5>Messi</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                        <img src="image/messi-4.jpg" alt="My Foto">
+                        <h5>Messi</h5>
+                        <p>- 2017</p>
+                    </div>
+                    <div class="card" data-aos="fade-left" data-aos-duration="600" data-aos-delay="100">
+                        <img src="image/messi-6.jpg" alt="My Foto">
+                        <h5>Messi</h5>
+                        <p>- 2015</p>
+                    </div>
+                    <div class="card">
+                        <img src="image/bil-4.jpg" alt="My Foto">
+                        <h5>Billiard</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card">
+                        <img src="image/bil-5.jpg" alt="My Foto">
+                        <h5>Billiard</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card">
+                        <img src="image/bil-7.jpg" alt="My Foto">
+                        <h5>Billiard</h5>
+                        <p>- 2024</p>
+                    </div>
+                    <div class="card">
+                        <img src="image/bil-9.jpg" alt="My Foto">
+                        <h5>Billiard</h5>
+                        <p>- 2024</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Menambahkan JavaScript untuk MODUL AOS (ANIMATE ON SCROLL) -->
+    <script>
+        AOS.init({
+                once: true,
+                duration: 450,
+                mirror: false,
+                disable: false,
+        });
+
+    </script>
+</body>
+</html>
